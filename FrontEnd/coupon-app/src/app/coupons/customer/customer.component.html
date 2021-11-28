@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-12">
+        <div class="btn-group"
+             role=group>
+            <button type="button"
+                    class="btn btn-primary"
+                    (click)="onMyCouponsClick()">my coupons</button>
+            <button type="button"
+                    class="btn btn-secondary"
+                    (click)="onUnpurchaseCouponsClick()">unpurchase coupons</button>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-12">
+        <app-coupon-item *ngFor="let c of coupons,let i= index"
+                         [coupon]="c"
+                         [id]=c.id></app-coupon-item>
+    </div>
+</div>

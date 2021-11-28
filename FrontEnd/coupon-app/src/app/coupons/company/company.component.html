@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-12">
+        <div class="btn-group"
+             role=group>
+            <button type="button"
+                    class="btn btn-primary"
+                    (click)="onCompanyCoupons()">my coupons</button>
+            <button type="button"
+                    class="btn btn-secondary"
+                    (click)="onNewCoupon() ">New Coupon</button>
+        </div>
+    </div>
+</div>
+<h6>sort by:</h6>
+<div class="btn-group btn-group-toggle"
+     data-toggle="buttons"
+     role=group>
+    <button type="button"
+            class="btn btn-outline-dark"
+            autocomplete="on"
+            (click)="onTitleClick()">Title</button>
+    <button type="button"
+            class="btn btn-outline-dark"
+            autocomplete="off"
+            (click)="onStartDateClick()">Start Date</button>
+    <button type="button"
+            class="btn btn-outline-dark"
+            autocomplete="off"
+            (click)="onTitleClick()">End Date</button>
+</div>
+<hr>
+<div class="row">
+    <div class="col-12">
+        <app-coupon-item 
+        *ngFor="let c of coupons,let i= index"
+                         [coupon]="c"
+                         [id]=c.id></app-coupon-item>
+    </div>
+</div>

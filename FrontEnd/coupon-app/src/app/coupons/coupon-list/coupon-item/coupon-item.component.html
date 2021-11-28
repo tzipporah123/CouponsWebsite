@@ -1,0 +1,14 @@
+<a style="cursor: pointer;"
+   [routerLink]="id"
+   routerLinkActive="active"
+   class="list-group-item"
+   [ngClass]="{'less-than-a-week': weekLeftForCustomer()}">
+     <img [src]="coupon.imageURL"
+          alt="The image of the coupon {{coupon.title}}"
+          class="img-fluid rounded-circle"
+          style="max-height: 100px;">
+     <h3>{{coupon.title}}</h3>
+     <h5>Coupon Price: {{coupon.price}}$</h5>
+     <h6>Start Date: {{coupon.startDate}} </h6>
+     <h6>End Date: {{coupon.endDate}}</h6>
+</a>

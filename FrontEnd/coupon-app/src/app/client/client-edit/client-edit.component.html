@@ -1,0 +1,52 @@
+<div class="container">
+       <form (ngSubmit)="onSubmit()"
+             #f="ngForm">
+              <div class="row">
+                     <div class="col-12">
+                            <div class="form-group">
+                                   <label for="name">Name:</label>
+                                   <input type="text"
+                                          name="name"
+                                          id="name"
+                                          [(ngModel)]="client.name"
+                                          class="form-control"
+                                          minlength="2"
+                                          maxlength="30"
+                                          required
+                                          #clientNameInput="ngModel">
+                                   <p *ngIf="!clientNameInput.valid&&clientNameInput.touched"
+                                      class="help-block">Please enter a name between 2 and 30 characters</p>
+                                   <label for="email">Email:</label>
+                                   <input type="email"
+                                          name="clientEmail"
+                                          id="clientEmail"
+                                          email="true"
+                                          [(ngModel)]="client.email"
+                                          class="form-control"
+                                          required
+                                          #clientEmailInput="ngModel">
+                                   <p *ngIf="!clientEmailInput.valid&&clientEmailInput.touched"
+                                      class="help-block">Please enter a valid email</p>
+                                   <label for="clientPassword">Password:</label>
+                                   <input type="password"
+                                          name="clientPassword"
+                                          id="clientPassword"
+                                          minlength="6"
+                                          maxlength="30"
+                                          [(ngModel)]="client.password"
+                                          class="form-control"
+                                          #clientPasswordInput>
+                                   <p *ngIf="!clientPasswordInput.valid&&clientPasswordInput.touched"
+                                      class="help-block">Please enter a password between 6 and 30 characters</p>
+                            </div>
+                     </div>
+                     <div class="row">
+                            <div class="col-6">
+                                   <button class="btn btn-primary"
+                                           type="submit"
+                                           [disabled]="!f.valid">Done</button>
+                            </div>
+                     </div>
+              </div>
+       </form>
+</div>

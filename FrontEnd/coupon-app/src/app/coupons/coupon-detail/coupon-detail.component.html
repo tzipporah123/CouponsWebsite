@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-12">
+        <img [src]="coupon.imageURL"
+             style="height: 200px;"
+             alt="The image of the coupon {{coupon.title}}"
+             class="img-fluid">
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <h1>{{coupon.title}}</h1>
+        <h2>{{coupon.description}}</h2>
+        <h3>Coupon Price: {{coupon.price}}$</h3>
+        <h4>{{coupon.amount}} coupons left</h4>
+        <h4 *ngIf="clientLevel==='COMPANY'">{{coupon.soldAmount}} coupons sold</h4>
+        <h5>Start Date: {{coupon.startDate}} End Date: {{coupon.endDate}}</h5>
+        <h6>category: {{coupon.category}}</h6>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="btn-group"
+             role=group>
+            <button type="button"
+                    class="btn btn-success"
+                    (click)="onPurchaseClick()"
+                    *ngIf="clientLevel==='CUSTOMER'&&!wasPurases">purchase</button>
+            <button type="button"
+                    class="btn btn-secondary"
+                    (click)="onEditCoupon()"
+                    *ngIf="clientLevel==='COMPANY'">Edit</button>
+            <button type="button"
+                    class="btn btn-danger"
+                    (click)="onDeleteClick()"
+                    *ngIf="clientLevel==='COMPANY'">Delete</button>
+        </div>
+    </div>
+</div>

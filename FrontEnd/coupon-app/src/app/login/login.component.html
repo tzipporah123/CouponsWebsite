@@ -1,0 +1,58 @@
+<h1>Log In</h1>
+<br>
+<div class="container">
+       <form (ngSubmit)="onSubmit()"
+             #f="ngForm">
+              <div class="row">
+                     <div class="col-12">
+                            <div class="form-group">
+                                   <label for="clientEmail">Email:</label>
+                                   <input type="email"
+                                          name="clientEmail"
+                                          id="clientEmail"
+                                          class="form-control"
+                                          email="true"
+                                          required
+                                          [(ngModel)]="loginClient.clientEmail"
+                                          #clientEmailInput="ngModel">
+                                   <p *ngIf="!clientEmailInput.valid&&clientEmailInput.touched"
+                                      class="help-block">Please enter a valid email</p>
+                                   <label for="clientPassword">Password:</label>
+                                   <input type="password"
+                                          name="clientPassword"
+                                          id="clientPassword"
+                                          class="form-control"
+                                          minlength="2"
+                                          maxlength="30"
+                                          required
+                                          [(ngModel)]="loginClient.clientPassword"
+                                          #n="ngModel">
+                                   <p *ngIf="!n.valid&&n.touched"
+                                      class="help-block">Please enter a password between 6 and 30 characters</p>
+                                   <br>
+                                   <label>
+                                          <input type="radio"
+                                                 required
+                                                 name='level'
+                                                 value="CUSTOMER"
+                                                 [(ngModel)]='loginClient.level'> Customer
+                                   </label>
+                                   <label>
+                                          <input type="radio"
+                                                 required
+                                                 name='level'
+                                                 value='COMPANY'
+                                                 [(ngModel)]='loginClient.level'> Campany
+                                   </label>
+                                   <div class="row">
+                                          <div class="col-12">
+                                                 <button class="btn btn-primary"
+                                                         type="submit"
+                                                         [disabled]="!f.valid">Login</button>
+                                          </div>
+                                   </div>
+                            </div>
+                     </div>
+              </div>
+       </form>
+</div>
